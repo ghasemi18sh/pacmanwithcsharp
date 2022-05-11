@@ -10,29 +10,36 @@ using System.Windows.Forms;
 
 namespace keyboardgame
 {
+
     public partial class Form1 : Form
     {
+        int y = 0;
+
         public Form1()
         {
             InitializeComponent();
+            snake.BackColor = Color.Transparent;
+            apple1.BackColor = Color.Transparent;
+            apple2.BackColor = Color.Transparent;
+            apple3.BackColor = Color.Transparent;
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left)
             {
-                pacman.Left -= 5;
+                snake.Left -= 5;
             }
             else if (e.KeyData == Keys.Right)
             {
-                pacman.Left += 5;
+                snake.Left += 5;
             }
             else if (e.KeyData == Keys.Up)
             {
-                pacman.Top -= 5;
+                snake.Top -= 5;
             }
             else if (e.KeyData == Keys.Down)
             {
-                pacman.Top += 5;
+                snake.Top += 5;
             }
             GameOver();
         }
@@ -44,15 +51,29 @@ namespace keyboardgame
                 {
                     if ((string)x.Tag == "ghost" && x.Visible == true)
                     {
-                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+
+                        if (snake.Bounds.IntersectsWith(x.Bounds))
                         {
                             x.Visible = false;
-                            MessageBox.Show("you lose");
+                            MessageBox.Show("You Got it");
+                            y += 1;
+                            if (y == 3)
+                            {
+                                MessageBox.Show("You Win");
+
+                            }
                             break;
+                      
                         }    
+                     
                     }
                 }
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
