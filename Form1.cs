@@ -16,12 +16,6 @@ namespace keyboardgame
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Left)
@@ -40,6 +34,26 @@ namespace keyboardgame
             {
                 pacman.Top += 5;
             }
+            GameOver();
+        }
+        private void GameOver()
+        {
+            foreach (Control x in this.Controls)
+            {
+                if(x is PictureBox)
+                {
+                    if ((string)x.Tag == "ghost" && x.Visible == true)
+                    {
+                        if (pacman.Bounds.IntersectsWith(x.Bounds))
+                        {
+                            x.Visible = false;
+                            MessageBox.Show("you lose");
+                            break;
+                        }    
+                    }
+                }
+            }
         }
     }
+
 }

@@ -29,11 +29,13 @@ namespace keyboardgame
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pacman = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -45,11 +47,12 @@ namespace keyboardgame
             // 
             this.pictureBox1.BackgroundImage = global::keyboardgame.Properties.Resources.kisspng_pac_man_party_worlds_biggest_pac_man_ghosts_pac_man_ghost_png_clipart_5a7561ddb18662_9709180915176422057272;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(499, 41);
+            this.pictureBox1.Location = new System.Drawing.Point(554, 41);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(95, 75);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Tag = "ghost";
             // 
             // pacman
             // 
@@ -57,7 +60,7 @@ namespace keyboardgame
             this.pacman.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pacman.Location = new System.Drawing.Point(88, 183);
             this.pacman.Name = "pacman";
-            this.pacman.Size = new System.Drawing.Size(150, 75);
+            this.pacman.Size = new System.Drawing.Size(81, 75);
             this.pacman.TabIndex = 1;
             this.pacman.TabStop = false;
             // 
@@ -65,31 +68,34 @@ namespace keyboardgame
             // 
             this.pictureBox3.BackgroundImage = global::keyboardgame.Properties.Resources.kisspng_pac_man_party_worlds_biggest_pac_man_ghosts_pac_man_ghost_png_clipart_5a7561ddb18662_9709180915176422057272;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(301, 335);
+            this.pictureBox3.Location = new System.Drawing.Point(374, 335);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(150, 75);
+            this.pictureBox3.Size = new System.Drawing.Size(77, 75);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Tag = "ghost";
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImage = global::keyboardgame.Properties.Resources.kisspng_pac_man_party_worlds_biggest_pac_man_ghosts_pac_man_ghost_png_clipart_5a7561ddb18662_9709180915176422057272;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(629, 273);
+            this.pictureBox4.Location = new System.Drawing.Point(693, 273);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(150, 75);
+            this.pictureBox4.Size = new System.Drawing.Size(86, 75);
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Tag = "ghost";
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImage = global::keyboardgame.Properties.Resources.kisspng_pac_man_party_worlds_biggest_pac_man_ghosts_pac_man_ghost_png_clipart_5a7561ddb18662_9709180915176422057272;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(224, 22);
+            this.pictureBox5.Location = new System.Drawing.Point(287, 22);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(150, 75);
+            this.pictureBox5.Size = new System.Drawing.Size(87, 75);
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Tag = "ghost";
             // 
             // Form1
             // 
@@ -107,7 +113,6 @@ namespace keyboardgame
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pacman)).EndInit();
@@ -125,6 +130,7 @@ namespace keyboardgame
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
