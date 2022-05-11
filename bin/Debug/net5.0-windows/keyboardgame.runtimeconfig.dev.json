@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\SAM-Tech\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\SAM-Tech\\.nuget\\packages"
+    ]
+  }
+}
